@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pokédex de Kanto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+</head>
+
+<body>
+    <header>
+        <img src="/master.png" alt="Logo de Pokémon">
+        <h1>Pokédex de Kanto</h1>
+    </header>
+
+    <div class="gengar-container">
+        <div class="gengar">
+            <div class="body"></div>
+            <div class="eyes">
+                <div class="eye"></div>
+                <div class="eye"></div>
+            </div>
+            <div class="mouth"></div>
+            <div class="tongue"></div>
+        </div>
+    </div>
+
+    <div class="pokemonInfo">
+        <label for="pokemonId">Pokemon : </label>
+        <input type="text" id="pokemonId" />
+        <button id="getBtn">Pokemon</button>
+        <br />
+        <h2 id="pokemonName"></h2>
+        <img id="pokemonImg" />
+        <p>Type: <span id="pokemonType"></span></p>
+        <p>Height: <span id="pokemonHeight"></span></p>
+        <p>Weight: <span id="pokemonWeight"></span></p>
+    </div>
+    <br>
+    <br>
+
+
+    <!-- !POKEMON LIST -->
+    <main>
+        <div class="pokedex-grid">
+            <div class="pokemon">
+                <span class="number">#001</span>
+                <h2 class="name">Bulbasaur</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Volador / Psíquico / Hielo</p>
+            </div>
+
+            <div class="pokemon">
+                <span class="number">#002</span>
+                <h2 class="name">Ivysaur</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Volador / Psíquico / Hielo</p>
+            </div>
+
+            <div class="pokemon">
+                <span class="number">#003</span>
+                <h2 class="name">Venusaur</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Volador / Psíquico / Hielo</p>
+            </div>
+            <!-- agregar más Pokémon aquí -->
+            <div class="pokemon">
+                <span class="number">#004</span>
+                <h2 class="name">Charmander</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#005</span>
+                <h2 class="name">Charmeleon</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#006</span>
+                <h2 class="name">Charizard</h2>
+                <p class="type">Fuego / Volador</p>
+                <p class="weakness">Agua / Roca / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#007</span>
+                <h2 class="name">Squirtle</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#008</span>
+                <h2 class="name">Wartortle</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#009</span>
+                <h2 class="name">Blastoise</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#010</span>
+                <h2 class="name">Caterpie</h2>
+                <p class="type">Bicho</p>
+                <p class="weakness">Fuego / Volador / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#011</span>
+                <h2 class="name">Metapod</h2>
+                <p class="type">Bicho</p>
+                <p class="weakness">Fuego / Volador / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#012</span>
+                <h2 class="name">Butterfree</h2>
+                <p class="type">Bicho / Volador</p>
+                <p class="weakness">Fuego / Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#013</span>
+                <h2 class="name">Weedle</h2>
+                <p class="type">Bicho / Veneno</p>
+                <p class="weakness">Fuego / Volador / Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#014</span>
+                <h2 class="name">Kakuna</h2>
+                <p class="type">Bicho / Veneno</p>
+                <p class="weakness">Fuego / Volador / Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#015</span>
+                <h2 class="name">Beedrill</h2>
+                <p class="type">Bicho / Veneno</p>
+                <p class="weakness">Fuego / Volador / Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#016</span>
+                <h2 class="name">Pidgey</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#017</span>
+                <h2 class="name">Pidgeotto</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#018</span>
+                <h2 class="name">Pidgeot</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#019</span>
+                <h2 class="name">Rattata</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#020</span>
+                <h2 class="name">Raticate</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#021</span>
+                <h2 class="name">Spearow</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#022</span>
+                <h2 class="name">Fearow</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#023</span>
+                <h2 class="name">Ekans</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#024</span>
+                <h2 class="name">Arbok</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#025</span>
+                <h2 class="name">Pikachu</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#026</span>
+                <h2 class="name">Raichu</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#027</span>
+                <h2 class="name">Sandshrew</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#028</span>
+                <h2 class="name">Sandslash</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#029</span>
+                <h2 class="name">Nidoran♀</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#030</span>
+                <h2 class="name">Nidorina</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#031</span>
+                <h2 class="name">Nidoqueen</h2>
+                <p class="type">Veneno / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#032</span>
+                <h2 class="name">Nidoran♂</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#033</span>
+                <h2 class="name">Nidorino</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#034</span>
+                <h2 class="name">Nidoking</h2>
+                <p class="type">Veneno / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#035</span>
+                <h2 class="name">Clefairy</h2>
+                <p class="type">Hada</p>
+                <p class="weakness">Acero / Veneno</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#036</span>
+                <h2 class="name">Clefable</h2>
+                <p class="type">Hada</p>
+                <p class="weakness">Acero / Veneno</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#037</span>
+                <h2 class="name">Vulpix</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#038</span>
+                <h2 class="name">Ninetales</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#039</span>
+                <h2 class="name">Jigglypuff</h2>
+                <p class="type">Normal / Hada</p>
+                <p class="weakness">Acero / Veneno</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#040</span>
+                <h2 class="name">Wigglytuff</h2>
+                <p class="type">Normal / Hada</p>
+                <p class="weakness">Acero / Veneno</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#041</span>
+                <h2 class="name">Zubat</h2>
+                <p class="type">Veneno / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Psíquico / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#042</span>
+                <h2 class="name">Golbat</h2>
+                <p class="type">Veneno / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Psíquico / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#043</span>
+                <h2 class="name">Oddish</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Psíquico / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#044</span>
+                <h2 class="name">Gloom</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Psíquico / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#045</span>
+                <h2 class="name">Vileplume</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Psíquico / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#046</span>
+                <h2 class="name">Paras</h2>
+                <p class="type">Bicho / Planta</p>
+                <p class="weakness">Fuego / Hielo / Veneno / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#047</span>
+                <h2 class="name">Parasect</h2>
+                <p class="type">Bicho / Planta</p>
+                <p class="weakness">Fuego / Hielo / Veneno / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#048</span>
+                <h2 class="name">Venonat</h2>
+                <p class="type">Bicho / Veneno</p>
+                <p class="weakness">Fuego / Psíquico / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#049</span>
+                <h2 class="name">Venomoth</h2>
+                <p class="type">Bicho / Veneno</p>
+                <p class="weakness">Fuego / Psíquico / Volador</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#050</span>
+                <h2 class="name">Diglett</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#051</span>
+                <h2 class="name">Dugtrio</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#052</span>
+                <h2 class="name">Meowth</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#053</span>
+                <h2 class="name">Persian</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#054</span>
+                <h2 class="name">Psyduck</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#055</span>
+                <h2 class="name">Golduck</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#056</span>
+                <h2 class="name">Mankey</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#057</span>
+                <h2 class="name">Primeape</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#058</span>
+                <h2 class="name">Growlithe</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Roca / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#059</span>
+                <h2 class="name">Arcanine</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Roca / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#060</span>
+                <h2 class="name">Poliwag</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#061</span>
+                <h2 class="name">Poliwhirl</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#062</span>
+                <h2 class="name">Poliwrath</h2>
+                <p class="type">Agua / Lucha</p>
+                <p class="weakness">Eléctrico / Planta / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#063</span>
+                <h2 class="name">Abra</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#064</span>
+                <h2 class="name">Kadabra</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#065</span>
+                <h2 class="name">Alakazam</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#066</span>
+                <h2 class="name">Machop</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#067</span>
+                <h2 class="name">Machoke</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#068</span>
+                <h2 class="name">Machamp</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#069</span>
+                <h2 class="name">Bellsprout</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Volador / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#070</span>
+                <h2 class="name">Weepinbell</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Volador / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#071</span>
+                <h2 class="name">Victreebel</h2>
+                <p class="type">Planta / Veneno</p>
+                <p class="weakness">Fuego / Hielo / Volador / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#072</span>
+                <h2 class="name">Tentacool</h2>
+                <p class="type">Agua / Veneno</p>
+                <p class="weakness">Eléctrico / Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#073</span>
+                <h2 class="name">Tentacruel</h2>
+                <p class="type">Agua / Veneno</p>
+                <p class="weakness">Eléctrico / Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#074</span>
+                <h2 class="name">Geodude</h2>
+                <p class="type">Roca / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#075</span>
+                <h2 class="name">Graveler</h2>
+                <p class="type">Roca / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#076</span>
+                <h2 class="name">Golem</h2>
+                <p class="type">Roca / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#077</span>
+                <h2 class="name">Ponyta</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#078</span>
+                <h2 class="name">Rapidash</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Tierra / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#079</span>
+                <h2 class="name">Slowpoke</h2>
+                <p class="type">Agua / Psíquico</p>
+                <p class="weakness">Eléctrico / Planta / Bicho</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#080</span>
+                <h2 class="name">Slowbro</h2>
+                <p class="type">Agua / Psíquico</p>
+                <p class="weakness">Eléctrico / Planta / Bicho</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#081</span>
+                <h2 class="name">Magnemite</h2>
+                <p class="type">Eléctrico / Acero</p>
+                <p class="weakness">Fuego / Tierra / Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#082</span>
+                <h2 class="name">Magneton</h2>
+                <p class="type">Eléctrico / Acero</p>
+                <p class="weakness">Fuego / Tierra / Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#083</span>
+                <h2 class="name">Farfetch'd</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#084</span>
+                <h2 class="name">Doduo</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#085</span>
+                <h2 class="name">Dodrio</h2>
+                <p class="type">Normal / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#086</span>
+                <h2 class="name">Seel</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#087</span>
+                <h2 class="name">Dewgong</h2>
+                <p class="type">Agua / Hielo</p>
+                <p class="weakness">Eléctrico / Planta / Lucha / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#088</span>
+                <h2 class="name">Grimer</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#089</span>
+                <h2 class="name">Muk</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#090</span>
+                <h2 class="name">Shellder</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#091</span>
+                <h2 class="name">Cloyster</h2>
+                <p class="type">Agua / Hielo</p>
+                <p class="weakness">Eléctrico / Planta / Lucha / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#092</span>
+                <h2 class="name">Gastly</h2>
+                <p class="type">Fantasma / Veneno</p>
+                <p class="weakness">Siniestro / Fantasma</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#093</span>
+                <h2 class="name">Haunter</h2>
+                <p class="type">Fantasma / Veneno</p>
+                <p class="weakness">Siniestro / Fantasma</p>
+            </div>
+            <div class="pokemon" id="gengar">
+                <span class="number">#094</span>
+                <h2 class="name">Gengar</h2>
+                <p class="type">Fantasma / Veneno</p>
+                <p class="weakness">Psíquico / Tierra / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#095</span>
+                <h2 class="name">Onix</h2>
+                <p class="type">Roca / Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra / Acero</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#096</span>
+                <h2 class="name">Drowzee</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#097</span>
+                <h2 class="name">Hypno</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#098</span>
+                <h2 class="name">Krabby</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#099</span>
+                <h2 class="name">Kingler</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#100</span>
+                <h2 class="name">Voltorb</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#101</span>
+                <h2 class="name">Electrode</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#102</span>
+                <h2 class="name">Exeggcute</h2>
+                <p class="type">Planta / Psíquico</p>
+                <p class="weakness">Fuego / Hielo / Veneno / Volador / Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#103</span>
+                <h2 class="name">Exeggutor</h2>
+                <p class="type">Planta / Psíquico</p>
+                <p class="weakness">Fuego / Hielo / Veneno / Volador / Bicho / Fantasma / Siniestro</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#104</span>
+                <h2 class="name">Cubone</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#105</span>
+                <h2 class="name">Marowak</h2>
+                <p class="type">Tierra</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#106</span>
+                <h2 class="name">Hitmonlee</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Psíquico / Volador / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#107</span>
+                <h2 class="name">Hitmonchan</h2>
+                <p class="type">Lucha</p>
+                <p class="weakness">Volador / Psíquico / Hada</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#108</span>
+                <h2 class="name">Lickitung</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#109</span>
+                <h2 class="name">Koffing</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#110</span>
+                <h2 class="name">Weezing</h2>
+                <p class="type">Veneno</p>
+                <p class="weakness">Tierra / Psíquico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#111</span>
+                <h2 class="name">Rhyhorn</h2>
+                <p class="type">Tierra / Roca</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra / Acero</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#112</span>
+                <h2 class="name">Rhydon</h2>
+                <p class="type">Tierra / Roca</p>
+                <p class="weakness">Agua / Planta / Hielo / Lucha / Tierra / Acero</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#113</span>
+                <h2 class="name">Chansey</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#114</span>
+                <h2 class="name">Tangela</h2>
+                <p class="type">Planta</p>
+                <p class="weakness">Fuego / Hielo / Veneno / Volador / Bicho</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#115</span>
+                <h2 class="name">Kangaskhan</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#116</span>
+                <h2 class="name">Horsea</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#117</span>
+                <h2 class="name">Seadra</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#118</span>
+                <h2 class="name">Goldeen</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#119</span>
+                <h2 class="name">Seaking</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#120</span>
+                <h2 class="name">Staryu</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Planta / Eléctrico</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#121</span>
+                <h2 class="name">Starmie</h2>
+                <p class="type">Agua / Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#122</span>
+                <h2 class="name">Mr. Mime</h2>
+                <p class="type">Psíquico / Hada</p>
+                <p class="weakness">Acero / Veneno</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#123</span>
+                <h2 class="name">Scyther</h2>
+                <p class="type">Bicho / Volador</p>
+                <p class="weakness">Eléctrico / Hielo / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#124</span>
+                <h2 class="name">Jynx</h2>
+                <p class="type">Hielo / Psíquico</p>
+                <p class="weakness">Fuego / Lucha / Roca / Acero</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#125</span>
+                <h2 class="name">Electabuzz</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#126</span>
+                <h2 class="name">Magmar</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Roca / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#127</span>
+                <h2 class="name">Pinsir</h2>
+                <p class="type">Bicho</p>
+                <p class="weakness">Fuego / Volador / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#128</span>
+                <h2 class="name">Tauros</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#129</span>
+                <h2 class="name">Magikarp</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#130</span>
+                <h2 class="name">Gyarados</h2>
+                <p class="type">Agua / Volador</p>
+                <p class="weakness">Eléctrico / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#131</span>
+                <h2 class="name">Lapras</h2>
+                <p class="type">Agua / Hielo</p>
+                <p class="weakness">Planta / Eléctrico / Lucha / Roca</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#132</span>
+                <h2 class="name">Ditto</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#133</span>
+                <h2 class="name">Eevee</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#134</span>
+                <h2 class="name">Vaporeon</h2>
+                <p class="type">Agua</p>
+                <p class="weakness">Eléctrico / Planta</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#135</span>
+                <h2 class="name">Jolteon</h2>
+                <p class="type">Eléctrico</p>
+                <p class="weakness">Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#136</span>
+                <h2 class="name">Flareon</h2>
+                <p class="type">Fuego</p>
+                <p class="weakness">Agua / Roca / Tierra</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#137</span>
+                <h2 class="name">Porygon</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+            </div>
+            <div class="pokemon">
+                <span class="number">#138</span>
+                <h2 class="name">Omanyte</h2>
+                <p class="type">Roca / Agua</p>
+                <p class="weakness">Planta / Eléctrico / Lucha / Roca</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#139</span>
+                <h2 class="name">Omastar</h2>
+                <p class="type">Roca / Agua</p>
+                <p class="weakness">Planta / Eléctrico / Lucha / Roca</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#140</span>
+                <h2 class="name">Kabuto</h2>
+                <p class="type">Roca / Agua</p>
+                <p class="weakness">Planta / Eléctrico / Lucha / Roca</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#141</span>
+                <h2 class="name">Kabutops</h2>
+                <p class="type">Roca / Agua</p>
+                <p class="weakness">Planta / Eléctrico / Lucha / Roca</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#142</span>
+                <h2 class="name">Aerodactyl</h2>
+                <p class="type">Roca / Volador</p>
+                <p class="weakness">Agua / Eléctrico / Hielo / Roca / Acero</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#143</span>
+                <h2 class="name">Snorlax</h2>
+                <p class="type">Normal</p>
+                <p class="weakness">Lucha</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#144</span>
+                <h2 class="name">Articuno</h2>
+                <p class="type">Hielo / Volador</p>
+                <p class="weakness">Fuego / Eléctrico / Roca / Acero</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#145</span>
+                <h2 class="name">Zapdos</h2>
+                <p class="type">Eléctrico / Volador</p>
+                <p class="weakness">Hielo / Roca</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#146</span>
+                <h2 class="name">Moltres</h2>
+                <p class="type">Fuego / Volador</p>
+                <p class="weakness">Agua / Roca / Eléctrico</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#147</span>
+                <h2 class="name">Dratini</h2>
+                <p class="type">Dragón</p>
+                <p class="weakness">Dragón / Hada / Hielo</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#148</span>
+                <h2 class="name">Dragonair</h2>
+                <p class="type">Dragón</p>
+                <p class="weakness">Dragón / Hada / Hielo</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#149</span>
+                <h2 class="name">Dragonite</h2>
+                <p class="type">Dragón / Volador</p>
+                <p class="weakness">Hielo / Roca / Hada / Dragón</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#150</span>
+                <h2 class="name">Mewtwo</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Oscuridad</p>
+              </div>
+              <div class="pokemon">
+                <span class="number">#151</span>
+                <h2 class="name">Mew</h2>
+                <p class="type">Psíquico</p>
+                <p class="weakness">Bicho / Fantasma / Oscuridad</p>
+              </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="signature">
+          <p>1NFORMA7ION</p>
+        </div>
+        <div class="social">
+          <ul>
+            <li><a href="https://twitter.com/FacuLenardon99" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/1nforma7ion" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.instagram.com/facu_lenardon/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/facundolenardon/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </footer>
+      
+    
+    <script src="Scripts.js"></script>
+</body>
+
+</html>
